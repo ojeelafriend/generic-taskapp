@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/taskapp.css" />
+    <title>Task App</title>
+  </head>
+  <body>
+    <h1>Task Application</h1>
+    <form action="../webservice/creator.php" method="POST">
+      <input
+        type="text"
+        required
+        maxlength="15"
+        minlength="6"
+        placeholder="title of your task"
+        name="title"
+        required
+      />
+      <br />
+      <textarea maxlength="300" minlength="20" name="text" required></textarea>
+      <br />
+      <input
+        type="text"
+        required
+        maxlength="15"
+        minlength="1"
+        placeholder="add a tag like this: @c++"
+        name="tag"
+        required
+      />
+      <button type="submit" onclick="">Add</button>
+    </form>
+  </body>
+</html>

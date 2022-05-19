@@ -5,7 +5,7 @@ class Checker{
 
     //? configurar variables de entorno para mejores customizaciones con el tiempo
 
-    public $error = [];
+    private $error = [];
 
     public function showErrors(){
         return $this->error;

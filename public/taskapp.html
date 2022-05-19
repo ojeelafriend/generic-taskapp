@@ -9,8 +9,9 @@
   </head>
   <body>
     <h1>Task Application</h1>
-    <form action="../webservice/Network/task/send.php" method="POST">
+    <form id="todo-form">
       <input
+        id="title"
         type="text"
         required
         maxlength="15"
@@ -20,9 +21,16 @@
         required
       />
       <br />
-      <textarea maxlength="300" minlength="20" name="text" required></textarea>
+      <textarea
+        id="text"
+        maxlength="300"
+        minlength="20"
+        name="text"
+        required
+      ></textarea>
       <br />
       <input
+        id="tag"
         type="text"
         required
         maxlength="15"
@@ -31,7 +39,11 @@
         name="tag"
         required
       />
-      <button type="submit" onclick="">Add</button>
+      <input type="submit" value="Add" />
     </form>
+    <br />
+    <br />
+    <ul id="todo-list"></ul>
+    <script src="js/TaskComponent.js"></script>
   </body>
 </html>

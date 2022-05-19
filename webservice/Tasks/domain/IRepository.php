@@ -1,5 +1,5 @@
 <?php
     interface IRepository{
-        public function create(\Task $task);
+        public function save(\Task $task);
     }
 ?>

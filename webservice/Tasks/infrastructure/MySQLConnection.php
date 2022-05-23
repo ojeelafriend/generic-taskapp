@@ -7,7 +7,7 @@
             echo "Failed to connect a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
 
-        echo $mysqli->host_info . "\n";
+       // echo $mysqli->host_info . "\n";
 
         return $mysqli;
     }

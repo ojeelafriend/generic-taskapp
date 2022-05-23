@@ -1,5 +1,4 @@
 <?php
-    require_once("../response.php");
 
     require_once("../../Tasks/application/Create/Creator.php");
     require_once("../../Tasks/infrastructure/MySQLRepository.php");
@@ -13,14 +12,12 @@
 
     try{
         $creator->run($title, $text, $tag);
-        echo "Yeah, create data";
+        header('Content-Type: application/json');
+        echo json_encode("Task saved successfully");
+    }catch(FieldException $fieldError) {
+        echo json_encode("There is a problem with the requested fields: " . $fieldError->getMessage());
     }catch(Exception $e){
-        echo "Error papa";
-        echo implode("//", $creator->showErrors());
-        echo $e;
-        //?trabajar varios catchs y sus respectivas excepciones
+        echo json_encode("Unexpected error: " . $e->getMessage());
     }
-    
-
 
 ?>

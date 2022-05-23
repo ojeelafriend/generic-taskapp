@@ -18,12 +18,12 @@
         public function save(\Task $task){
             $wrapper = $task->showDetails();
 
-            $user = 1; //!warn static state id_user
+            $user = 2; //!warn static state id_user
             $title = $wrapper['title'];
             $text = $wrapper['text'];
             $tag = $wrapper['tag'];
 
-            $sql = "INSERT INTO task (fk_user, title, text, tag) VALUES ('$user','$title','$text','$tag')";
+            $sql = "INSERT INTO task (fk_user, title, text, tag) VALUES ('$user','$title','$text','$tag');";
             
             mysqli_query($this->client, $sql);
 

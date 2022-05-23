@@ -6,10 +6,6 @@ class Checker{
     //? configurar variables de entorno para mejores customizaciones con el tiempo
 
     private $error = [];
-
-    public function showErrors(){
-        return $this->error;
-    }
     
     public function verify(string $title, string $text, string $tag){
 
@@ -36,8 +32,8 @@ class Checker{
         }
 
         if(count($this->error) > 0){
-            echo count($this->error);
-            throw new Exception('Error detected in the verify method');
+            $errors = implode(", ", $this->error);
+            throw new FieldException($errors, count($this->error));
         }
 
     }

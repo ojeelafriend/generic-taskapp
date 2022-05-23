@@ -43,11 +43,13 @@ const render = () => {
   list.innerHTML = template();
 };
 
-document.addEventListener("submit", (e) => {
+document.addEventListener("submit", async (e) => {
   if (!e.target.matches("#todo-form")) return false;
-
   e.preventDefault();
 
+  await Notifier.send(new FormData(document.getElementById("todo-form")));
+
+  /*
   const inputTitle = document.getElementById("title").value;
   const inputText = document.getElementById("text").value;
   const inputTag = document.getElementById("tag").value;
@@ -63,5 +65,5 @@ document.addEventListener("submit", (e) => {
   increment();
 
   taskState.setTodoList(wrapper);
-  render();
+  render();*/
 });

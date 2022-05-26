@@ -1,5 +1,5 @@
 <?php
-    require_once(__DIR__ . '/MySQLConnection.php');
+    require_once(__DIR__ . '../../../Shared/infrastructure/MySQLConnection.php');
     require_once(__DIR__ . '/../domain/IRepository.php');
 
     class MySQLRepository implements IRepository{
@@ -18,7 +18,7 @@
         public function save(\Task $task){
             $wrapper = $task->showDetails();
 
-            $user = 2; //!warn static state id_user
+            $user = 2; //! contain id in the session.
             $title = $wrapper['title'];
             $text = $wrapper['text'];
             $tag = $wrapper['tag'];
@@ -29,9 +29,17 @@
 
         }
 
-        public function read(){
-            $sql = "SELECT * FROM task";
-            //probar nuevas funcionalidades con pdo: count, offset y limit (paginación)
+        public function read($initial, $items){
+            $sql = "SELECT * FROM task LIMIT :initial,:items";
+
+            $query = $this->client->prepare($sql);
+            $query->bindParam(':initial', $initial, PDO::PARAM_INT);
+            $query->bindParam(':items', $items, PDO::PARAM_INT);
+            $query->execute();
+            $tasks = $query->fetchAll();
+
+            return $tasks;
+
         }
   
     }

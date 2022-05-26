@@ -24,10 +24,16 @@
             $tag = $wrapper['tag'];
 
             $sql = "INSERT INTO task (fk_user, title, text, tag) VALUES ('$user','$title','$text','$tag');";
-            
-            mysqli_query($this->client, $sql);
+            $query = $this->client->prepare($sql);
+            $query->execute();
 
         }
+
+        public function read(){
+            $sql = "SELECT * FROM task";
+            //probar nuevas funcionalidades con pdo: count, offset y limit (paginación)
+        }
+  
     }
     
 

@@ -1,5 +1,5 @@
 <?php
-    require_once(__DIR__ . '../../../domain/IRepository.php');
+    require_once(__DIR__ . '../../domain/IRepository.php');
 
     class Lister{
         private $repository;
@@ -12,7 +12,7 @@
             if($initial == null || $items == null){
                 throw new ListException('Number of items or initial have null values');
             }
-
+            
             $tasks = $this->repository->read($initial, $items);
 
             if(!$tasks){
@@ -21,6 +21,10 @@
 
             return $tasks;
 
+        }
+
+        public function countItems(){
+            return $this->repository->checkRows();
         }
     }
 

@@ -1,7 +1,7 @@
 <?php
     require_once(__DIR__ . '../../../Shared/infrastructure/MySQLConnection.php');
-    require_once(__DIR__ . '/../domain/IRepository.php');
-
+    require_once(__DIR__ . '../../domain/IRepository.php');
+    
     class MySQLRepository implements IRepository{
         //!warn: use .env
         private $hostname="localhost";
@@ -40,6 +40,14 @@
 
             return $tasks;
 
+        }
+
+        public function checkRows(){
+            $sql = "SELECT * FROM task";
+            $query = $this->client->prepare($sql);
+            $query->execute();
+            
+            return $query->rowCount();
         }
   
     }

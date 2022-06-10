@@ -13,6 +13,35 @@ class Notifier {
     );
 
     let body = await request.json();
+
+    //debug
     console.log(body);
+  }
+
+  static async list(initial, items) {
+    let data = new FormData();
+
+    data.set("initial", initial);
+    data.set("items", items);
+
+    let request = await fetch(
+      "http://localhost/generic-taskapp/webservice/Network/task/list.php",
+      { method: "POST", body: data }
+    );
+
+    let body = await request.json();
+
+    return body;
+  }
+
+  static async checkRows() {
+    let request = await fetch(
+      "http://localhost/generic-taskapp/webservice/Network/task/rows.php"
+    );
+
+    let body = await request.json();
+
+    console.log("checkRows method notifier: " + body);
+    return body;
   }
 }

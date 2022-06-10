@@ -1,7 +1,7 @@
 <?php
-    require_once(__DIR__ . '/MySQLConnection.php');
-    require_once(__DIR__ . '/../domain/IRepository.php');
-
+    require_once(__DIR__ . '../../../Shared/infrastructure/MySQLConnection.php');
+    require_once(__DIR__ . '../../domain/IRepository.php');
+    
     class MySQLRepository implements IRepository{
         //!warn: use .env
         private $hostname="localhost";
@@ -18,16 +18,38 @@
         public function save(\Task $task){
             $wrapper = $task->showDetails();
 
-            $user = 2; //!warn static state id_user
+            $user = 2; //! contain id in the session.
             $title = $wrapper['title'];
             $text = $wrapper['text'];
             $tag = $wrapper['tag'];
 
             $sql = "INSERT INTO task (fk_user, title, text, tag) VALUES ('$user','$title','$text','$tag');";
-            
-            mysqli_query($this->client, $sql);
+            $query = $this->client->prepare($sql);
+            $query->execute();
 
         }
+
+        public function read($initial, $items){
+            $sql = "SELECT * FROM task LIMIT :initial,:items";
+
+            $query = $this->client->prepare($sql);
+            $query->bindParam(':initial', $initial, PDO::PARAM_INT);
+            $query->bindParam(':items', $items, PDO::PARAM_INT);
+            $query->execute();
+            $tasks = $query->fetchAll();
+
+            return $tasks;
+
+        }
+
+        public function checkRows(){
+            $sql = "SELECT * FROM task";
+            $query = $this->client->prepare($sql);
+            $query->execute();
+            
+            return $query->rowCount();
+        }
+  
     }
     
 

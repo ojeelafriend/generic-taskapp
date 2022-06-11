@@ -1,4 +1,21 @@
-* {
-  margin: 0;
-  padding: 0;
+body {
+  background-image: url(LofiBackground.jpg);
+  font-family: "Coming Soon", cursive;
+  margin: 350px 20px 10px 750px;
+}
+
+.logo {
+  font-size: 2em;
+}
+
+#title {
+  font-size: 3em;
+}
+
+#text {
+  font-size: 3em;
+}
+
+#id {
+  font-size: 3em;
 }

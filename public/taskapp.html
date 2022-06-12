@@ -17,44 +17,46 @@
     <title>Task App</title>
   </head>
   <body>
-    <div class="logo">
-      <h1>Task Application</h1>
+    <div class="box">
+      <div class="logo">
+        <h1>Task Application</h1>
+      </div>
+      <form id="todo-form">
+        <input
+          id="title"
+          type="text"
+          required
+          maxlength="15"
+          minlength="6"
+          placeholder="title of your task"
+          name="title"
+          required
+        />
+        <br />
+        <textarea
+          id="text"
+          maxlength="300"
+          minlength="20"
+          name="text"
+          required
+        ></textarea>
+        <br />
+        <input
+          id="tag"
+          type="text"
+          required
+          maxlength="15"
+          minlength="1"
+          placeholder="add a tag like this: @c++"
+          name="tag"
+          required
+        />
+        <input id="add-button" type="submit" value="+" />
+      </form>
+      <br />
     </div>
-    <form id="todo-form">
-      <input
-        id="title"
-        type="text"
-        required
-        maxlength="15"
-        minlength="6"
-        placeholder="title of your task"
-        name="title"
-        required
-      />
-      <br />
-      <textarea
-        id="text"
-        maxlength="300"
-        minlength="20"
-        name="text"
-        required
-      ></textarea>
-      <br />
-      <input
-        id="tag"
-        type="text"
-        required
-        maxlength="15"
-        minlength="1"
-        placeholder="add a tag like this: @c++"
-        name="tag"
-        required
-      />
-      <input type="submit" value="Add" />
-    </form>
-    <br />
 
-    <a href="./seetasks.html?page=1">See tasks</a>
+    <a class="tasks-button" href="./seetasks.html?page=1">See tasks</a>
 
     <script src="js/Notifier.js"></script>
     <script src="js/submitEvents.js"></script>

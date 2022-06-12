@@ -1,19 +1,67 @@
 body {
   background-image: url(LofiBackground.jpg);
   font-family: "Coming Soon", cursive;
-  margin: 350px 20px 10px 750px;
+  margin: 350px 20px 10px 750px; /*margin box?*/
 }
 
+/*sheer box*/
+.box {
+  background-color: rgba(2, 37, 5, 0.7);
+  margin: 350px 20px 80px 50px;
+  min-width: 210px;
+  padding: 40px;
+  width: 30%;
+  margin-top: 100px;
+}
+
+/*"task aplication" logo and box*/
 .logo {
-  font-size: 2em;
+  font-size: 1em;
+  background-color: #57392bc5;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-top: auto;
+  text-align: center;
 }
 
+/*title of your task*/
 #title {
-  font-size: 3em;
+  font-size: 1em;
+  background-color: #cc8c2b9d;
+  padding-left: 45px;
+  padding-right: 20px;
+  padding-top: 12px;
+  margin: 10px 10px 30px 30px;
+  text-align: center;
 }
 
 #text {
-  font-size: 3em;
+  font-size: 1em;
+  background-color: #cc8c2b9d;
+  margin: 1em;
+  padding-left: 45px;
+  padding-right: 20px;
+  padding-top: 12px;
+  margin: 10px 10px 30px 45px;
+}
+
+#tag {
+  font-size: 1em;
+  background-color: #57392bc5;
+  border-radius: 20px;
+  margin: 10px 10px 30px 55px;
+}
+
+#add-button {
+  font-size: 1em;
+  background-color: #57392b9e;
+  border-radius: 20px;
+}
+
+.tasks-button {
+  font-size: 1.5em;
+  color: black;
+  margin: 500px 700px 900px 50px;
 }
 
 #id {

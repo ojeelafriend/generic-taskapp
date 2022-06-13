@@ -44,4 +44,19 @@ class Notifier {
     console.log("checkRows method notifier: " + body);
     return body;
   }
+
+  static async remove(id) {
+    let data = new FormData();
+    data.set("taskId", id);
+
+    let request = await fetch(
+      "http://localhost/generic-taskapp/webservice/Network/task/remove.php",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    let body = await request.json();
+    console.log(body);
+  }
 }

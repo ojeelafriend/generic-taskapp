@@ -5,3 +5,9 @@ document.addEventListener("submit", async (evt) => {
 
   await Notifier.send(new FormData(document.getElementById("todo-form")));
 });
+
+async function submitRemoveTask(id) {
+  await Notifier.remove(id);
+  await TaskComponent.render();
+  await PageNumber.render();
+}

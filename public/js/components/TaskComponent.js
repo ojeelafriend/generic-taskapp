@@ -13,12 +13,14 @@ class TaskComponent {
   static async template() {
     let initial = (this.checkPage() - 1) * config.itemForPage;
 
-    //code smells
+    //code smell
     if (initial === 0) {
       initial = 1;
     }
 
     const tasks = await Notifier.list(initial, config.itemForPage);
+
+    if (!tasks) return "<h3>Tasks dont exists</h3>";
 
     taskState.setTodoList(tasks);
 
@@ -30,6 +32,10 @@ class TaskComponent {
                       <h4>${title}</h4>
                       <p>${text}</p>
                       <a href="#">${tag}</a>
+                      <br/>
+                      <a class="delete-icon" onclick="submitRemoveTask(${id_task})">
+                        <i class="fa-regular fa-rectangle-xmark"></i>
+                      </a>
                   </article>
               </li>
         `;

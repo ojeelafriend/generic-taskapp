@@ -9,8 +9,12 @@ const pageState = {
 };
 
 class PageNumber {
+  currentNumberPage;
+
   static async template() {
     let rows = await Notifier.checkRows();
+
+    if (rows <= 1) return "";
 
     let pages = Math.ceil(rows / config.itemForPage);
 

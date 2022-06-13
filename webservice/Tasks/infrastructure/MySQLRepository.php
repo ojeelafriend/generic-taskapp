@@ -49,7 +49,12 @@
             
             return $query->rowCount();
         }
-  
+        
+        public function delete($taskId){
+            $sql = "DELETE FROM task WHERE id_task='$taskId'";
+            $query = $this->client->prepare($sql);
+            $query->execute();
+        }
     }
     
 

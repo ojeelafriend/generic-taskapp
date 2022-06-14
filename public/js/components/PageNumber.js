@@ -14,7 +14,7 @@ class PageNumber {
   static async template() {
     let rows = await Notifier.checkRows();
 
-    if (rows <= 1) return "";
+    if (rows < config.itemForPage + 2) return "";
 
     let pages = Math.ceil(rows / config.itemForPage);
 
@@ -23,7 +23,8 @@ class PageNumber {
     return pageState.pages
       .map((number) => {
         return `
-          <a id="current-page" href=?page=${number}>${number}</a>
+          <input id="pagination" type="submit" value=${number}></input>
+          <a class="current-page" id=${number} href="page?${number}"></a>
         `;
       })
       .join("");

@@ -11,7 +11,12 @@ const taskState = {
 
 class TaskComponent {
   static async template() {
+    let currentPage = 1;
     let initial = (this.checkPage() - 1) * config.itemForPage;
+
+    if (currentPage !== 1) {
+      initial = 1 - 1;
+    }
 
     //code smell
     if (initial === 0) {
@@ -51,6 +56,7 @@ class TaskComponent {
   }
 
   static checkPage() {
+    console.log(/\d/.exec(window.location.href)[0]);
     return /\d/.exec(window.location.href)[0];
   }
 }

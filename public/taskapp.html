@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/3fd1d156b5.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="styles/taskapp.css" />
     <title>Task App</title>
   </head>
   <body>
     <h1>Task Application</h1>
-    <form id="todo-form">
+    <form id="todo-form" method="POST">
       <input
         id="title"
         type="text"
@@ -39,14 +43,21 @@
         name="tag"
         required
       />
-      <input type="submit" value="Add" />
+      <input type="submit" onclick="submitSendTask()" value="Add" />
     </form>
 
     <br />
 
-    <a href="./seetasks.html?page=1">See tasks</a>
+    <div class="todo-list">
+      <ul id="todo-list"></ul>
+      <div class="page-selector"></div>
+    </div>
 
+    <script src="js/components/PageNumber.js"></script>
     <script src="js/Notifier.js"></script>
+    <script src="js/preference.js"></script>
+    <script src="js/components/TaskComponent.js"></script>
+    <script src="js/render.js"></script>
     <script src="js/submitEvents.js"></script>
   </body>
 </html>

@@ -1,10 +1,17 @@
 document.addEventListener("submit", async (evt) => {
-  if (!evt.target.matches("#todo-form")) return false;
+  if (!evt.target.matches("#current-page")) return false;
 
-  evt.preventDefault();
+  console.log("hihi");
 
-  await Notifier.send(new FormData(document.getElementById("todo-form")));
+  document.getElementById(TaskComponent.checkPage() + 1).click();
 });
+
+async function submitSendTask() {
+  await Notifier.send(new FormData(document.getElementById("todo-form")));
+  await TaskComponent.render();
+  await PageNumber.render();
+  document.getElementById(TaskComponent.checkPage() + 1);
+}
 
 async function submitRemoveTask(id) {
   await Notifier.remove(id);

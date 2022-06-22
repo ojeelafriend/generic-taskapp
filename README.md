@@ -12,4 +12,3 @@ Se trata de una aplicación web que listará tareas cotidianas. Cada usuario ten
 ## Mockup:
 
 ![Screenshot_8](https://user-images.githubusercontent.com/63030605/174921356-b6a5fbb7-7c93-4749-8a7c-6be5ffc2b3f1.png)
-![Screenshot_9](https://user-images.githubusercontent.com/63030605/174921361-ae2d5ea9-f9ff-4dd1-a982-4467441ba321.png)

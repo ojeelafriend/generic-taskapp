@@ -1,18 +1,18 @@
 <?php
 
-    require_once(__DIR__ . '../../domain/IRepository.php');
+require_once(__DIR__ . '../../domain/IRepository.php');
 
-    class Eliminator{
-        private $repository;
+class Eliminator
+{
+    private $repository;
 
-        public function __construct(\IRepository $repository){
-            $this->repository = $repository;
-        }
-
-        public function run($taskId){
-            $this->repository->delete($taskId);
-        }
+    public function __construct(\IRepository $repository)
+    {
+        $this->repository = $repository;
     }
 
-
-?>
+    public function run($taskId)
+    {
+        $this->repository->delete($taskId);
+    }
+}

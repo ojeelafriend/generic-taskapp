@@ -21,7 +21,7 @@ class PageNumber {
     return pageState.pages
       .map((number) => {
         return `
-          <button onclick="submitPage(${number})">${number}</button>
+          <button class="pagination" onclick="submitPage(${number})">${number}</button>
         `;
       })
       .join("");

@@ -4,7 +4,7 @@ del web service y el resto
 
 class Notifier {
   static async send(params = new FormData()) {
-    let request = await fetch(
+    let response = await fetch(
       "http://localhost/generic-taskapp/webservice/Network/task/send.php",
       {
         method: "POST",
@@ -12,7 +12,7 @@ class Notifier {
       }
     );
 
-    let body = await request.json();
+    let body = await response.json();
 
     //debug
     console.log(body);
@@ -24,22 +24,22 @@ class Notifier {
     data.set("initial", initial);
     data.set("items", items);
 
-    let request = await fetch(
+    let response = await fetch(
       "http://localhost/generic-taskapp/webservice/Network/task/list.php",
       { method: "POST", body: data }
     );
 
-    let body = await request.json();
+    let body = await response.json();
 
     return body;
   }
 
   static async checkRows() {
-    let request = await fetch(
+    let response = await fetch(
       "http://localhost/generic-taskapp/webservice/Network/task/rows.php"
     );
 
-    let body = await request.json();
+    let body = await response.json();
 
     console.log("checkRows method notifier: " + body);
     return body;
@@ -49,14 +49,14 @@ class Notifier {
     let data = new FormData();
     data.set("taskId", id);
 
-    let request = await fetch(
+    let response = await fetch(
       "http://localhost/generic-taskapp/webservice/Network/task/remove.php",
       {
         method: "POST",
         body: data,
       }
     );
-    let body = await request.json();
+    let body = await response.json();
     console.log(body);
   }
 }

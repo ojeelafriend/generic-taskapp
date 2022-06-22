@@ -17,3 +17,8 @@ async function submitRemoveTask(itemId) {
   await submitPage(CurrentPage.getPage());
   await PageNumber.render();
 }
+
+async function logout() {
+  await Session.removeProfile();
+  window.location.reload();
+}

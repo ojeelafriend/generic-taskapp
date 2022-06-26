@@ -1,0 +1,7 @@
+html {
+  background-color: rgba(208, 207, 207, 0.696);
+}
+
+section {
+  display: flex;
+}

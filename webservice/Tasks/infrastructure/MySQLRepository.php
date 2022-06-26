@@ -50,6 +50,15 @@ class MySQLRepository implements IRepository
         return $tasks;
     }
 
+    public function search($search)
+    {
+        $sql = "SELECT * FROM task WHERE tag LIKE '%$search%' AND fk_user='$this->userId';";
+        $query = $this->client->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
     public function checkRows()
     {
         $sql = "SELECT * FROM task";

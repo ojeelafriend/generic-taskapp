@@ -1,9 +1,13 @@
 <?php
 require_once(__DIR__ . '../../../Users/infrastructure/MySQLUserRepository.php');
+require_once(__DIR__ . '../../../Users/infrastructure/MySQLMediaRepository.php');
+
 require_once(__DIR__ . '../../../Users/application/Create/Maker.php');
 
 $repository = new MySQLUserRepository();
-$maker = new Maker($repository);
+$mediaRepository = new MySQLMediaRepository();
+
+$maker = new Maker($repository, $mediaRepository);
 
 $email = $_POST['email'];
 $username = $_POST['username'];

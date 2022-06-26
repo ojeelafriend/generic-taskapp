@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="./js/Shared/session.js"></script>
+    <script src="./js/Shared/auth/user.js"></script>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/3fd1d156b5.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="./styles/panel.css" />
     <title>User panel</title>
   </head>
   <body>
-    <section class="hero is-warning">
-      <div class="hero-body">
-        <p class="title">Warning hero</p>
-        <p class="subtitle">Warning subtitle</p>
+    <navbar class="column">
+      <button class="button is-link p-2 m-2" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+
+      <button class="button is-link p-2 m-2">
+        <i class="fa-solid fa-square-poll-horizontal"></i>
+      </button>
+
+      <button class="button is-link p-2 m-2" onclick="">
+        <i class="fa-solid fa-image"></i>
+      </button>
+    </navbar>
+
+    <section class="container">
+      <div class="box is-1 has-text-centered">
+        <img
+          class="is-rounded"
+          src="https://bulma.io/images/placeholders/128x128.png"
+        />
+        <div id="profile-data" class="">
+          <h1 class="title">Profile name</h1>
+          <h2 class="subtitle">Status this profile</h2>
+        </div>
       </div>
     </section>
+
+    <script src="js/Tasks/events/submit.js"></script>
   </body>
 </html>

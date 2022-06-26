@@ -1,3 +1,3 @@
 const config = {
-  itemForPage: 5,
+  itemForPage: 3,
 };

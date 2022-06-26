@@ -2,9 +2,9 @@ const taskState = {
   todoList: [],
   setTodoList: function (items = [{ id_task, title, text, tag }]) {
     this.todoList = [];
+    if (!items || items == 0) return;
 
-    if (!items) return;
-
+    console.log(items);
     items.map((item) => {
       this.todoList.push(item);
     });
@@ -12,13 +12,21 @@ const taskState = {
 };
 
 class TaskComponent {
-  static async template(numberPage) {
+  static async template(numberPage, search = false) {
     let initial = (numberPage - 1) * config.itemForPage;
+    let tasks;
 
-    const tasks = await Notifier.list(initial, config.itemForPage);
+    console.log('task template: ' + search);
+    //code smells
+    if (!search) {
+      tasks = await Notifier.list(initial, config.itemForPage);
+    } else {
+      tasks = await Notifier.search(search);
+    }
 
+    console.log('Tasks' + tasks);
     if (CurrentPage.getPage() == 1 && !tasks)
-      return "<h3>There are no tasks yet</h3>";
+      return '<h3>There are no tasks yet</h3>';
 
     taskState.setTodoList(tasks);
 
@@ -43,13 +51,13 @@ class TaskComponent {
             </div>
         `;
       })
-      .join("");
+      .join('');
 
     return todos;
   }
 
-  static async render(numberPage) {
-    let list = document.querySelector("#todo-list");
-    list.innerHTML = await this.template(numberPage);
+  static async render(numberPage, search) {
+    let list = document.querySelector('#todo-list');
+    list.innerHTML = await this.template(numberPage, search);
   }
 }

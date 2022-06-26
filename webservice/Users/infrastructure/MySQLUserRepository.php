@@ -1,5 +1,14 @@
 <?php
 
+/** Algo a tener en cuenta: 
+ * El dominio está actuando dentro de infraestructura
+ *  y sobrecarga la responsabilidad. La interrogante es que,
+ * al sacar la destructuración de las entidades de esta capa,
+ * el dominio deja de tener participación y se vuelve inservible.
+ * 
+ * odev
+ *  */
+
 require_once(__DIR__ . '../../../Shared/infrastructure/MySQLConnection.php');
 require_once(__DIR__ . '../../domain/IUserRepository.php');
 require_once(__DIR__ . '../../domain/User.php');

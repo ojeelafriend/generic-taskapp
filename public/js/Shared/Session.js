@@ -1,15 +1,10 @@
-class Session {
-  static async getProfile() {
-    let profile = await fetch(
-      "http://localhost/generic-taskapp/webservice/Network/session.php"
-    );
+async function getProfile() {
+  let profile = await fetch(
+    'http://localhost/generic-taskapp/webservice/Network/session.php'
+  );
+  return await profile.json();
+}
 
-    return await profile.json();
-  }
-
-  static async removeProfile() {
-    await fetch(
-      "http://localhost/generic-taskapp/webservice/Network/logout.php"
-    );
-  }
+async function removeProfile() {
+  await fetch('http://localhost/generic-taskapp/webservice/Network/logout.php');
 }

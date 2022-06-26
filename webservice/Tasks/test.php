@@ -1,15 +1,14 @@
 <?php
 require_once('./infrastructure/MySQLRepository.php');
 require_once('./application/exceptions/ListException.php');
-require_once('./application/Lister.php');
-require_once('./domain/Task.php');
+require_once('./application/Searcher.php');
 
 $mysql = new MySQLRepository();
-$lister = new Lister($mysql);
+$searcher = new Searcher($mysql);
 
 try {
-    $initial = $lister->run(0, 5);
-    echo json_encode($initial);
+    $result = $searcher->run("php");
+    echo json_encode($result);
 } catch (ListException $th) {
 
     echo json_encode($th->getMessage());

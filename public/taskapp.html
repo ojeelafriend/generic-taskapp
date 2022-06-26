@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="./js/Shared/Session.js"></script>
-    <script src="./js/Shared/auth/authorize.js"></script>
+    <script src="./js/Shared/session.js"></script>
+    <script src="./js/Shared/auth/user.js"></script>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,6 +26,14 @@
     <button class="button is-link p-2 m-2">
       <i class="fa-solid fa-house-chimney-user"></i>
     </button>
+
+    <div class="field has-addons has-text-centered">
+        <form id="search-form">
+          <input class="input" name="search" type="text" placeholder="Find" />
+          <a class="button is-info" onclick="findTask()"> Search </a>
+        </form>
+      </div>
+    </div>
 
     <div class="box-taskapp column">
       <form id="todo-form" class="box" method="POST">
@@ -84,6 +92,7 @@
           value="Add"
         />
       </form>
+
       <div class="todo-list">
         <div class="list" id="todo-list"></div>
         <div class="page-selector"></div>

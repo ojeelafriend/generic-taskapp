@@ -15,33 +15,23 @@ class Notifier {
     let body = await response.json();
 
     //debug
-    console.log(body);
   }
 
   static async list(initial, items) {
-    let data = new FormData();
-
-    data.set('initial', initial);
-    data.set('items', items);
-
     let response = await fetch(
-      'http://localhost/generic-taskapp/webservice/Network/task/list.php',
-      { method: 'POST', body: data }
+      `http://localhost/generic-taskapp/webservice/Network/task/list.php?initial=${initial}&items=${items}`
     );
 
     let body = await response.json();
+
+    console.log(body);
 
     return body;
   }
 
   static async search(search) {
-    let data = new FormData();
-
-    data.set('search', search);
-
     let response = await fetch(
-      'http://localhost/generic-taskapp/webservice/Network/task/search.php',
-      { method: 'POST', body: data }
+      `http://localhost/generic-taskapp/webservice/Network/task/search.php?search=${search}`
     );
 
     let body = await response.json();
@@ -56,10 +46,10 @@ class Notifier {
 
     let body = await response.json();
 
-    console.log('checkRows method notifier: ' + body);
     return body;
   }
 
+  //no deberia ser post ni get, sino delete pero hay que chequearlo con la api.
   static async remove(id) {
     let data = new FormData();
     data.set('taskId', id);
@@ -72,6 +62,5 @@ class Notifier {
       }
     );
     let body = await response.json();
-    console.log(body);
   }
 }

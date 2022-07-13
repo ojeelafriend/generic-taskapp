@@ -22,7 +22,9 @@ class Notifier {
       `http://localhost/generic-taskapp/webservice/Network/task/list.php?initial=${initial}&items=${items}`
     );
 
+
     let body = await response.json();
+
 
     console.log(body);
 
@@ -31,7 +33,9 @@ class Notifier {
 
   static async search(search) {
     let response = await fetch(
+
       `http://localhost/generic-taskapp/webservice/Network/task/search.php?search=${search}`
+
     );
 
     let body = await response.json();

@@ -16,12 +16,14 @@ class TaskComponent {
     let tasks;
 
     //valida si notifier debe usarse como un alldata o un search específico.
+
     if (!search) {
       tasks = await Notifier.list(initial, config.itemForPage);
     } else {
       tasks = await Notifier.search(search);
     }
 
+    console.log('Tasks' + tasks);
     if (CurrentPage.getPage() == 1 && !tasks)
       return '<h3>There are no tasks yet</h3>';
 

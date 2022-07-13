@@ -5,7 +5,9 @@ require_once(__DIR__ . '../../../Tasks/application/Searcher.php');
 $repository = new MySQLRepository();
 $searcher = new Searcher($repository);
 
-$search = $_POST['search'];
+
+$search = $_GET['search'];
+
 
 try {
     $result = $searcher->run($search);

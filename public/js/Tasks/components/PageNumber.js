@@ -12,11 +12,14 @@ class PageNumber {
   static async template() {
     let rows = await Notifier.checkRows();
 
-    if (CurrentPage.getPage() == 1 && rows < config.itemForPage + 2) return "";
+    console.log('1) cuantas filas existen: ' + rows);
 
     let pages = Math.ceil(rows / config.itemForPage);
 
     pageState.setPage(pages);
+
+    console.log(pageState.pages.length);
+    if (pageState.pages == 1) return '';
 
     return pageState.pages
       .map((number) => {
@@ -24,11 +27,11 @@ class PageNumber {
           <button class="pagination" onclick="submitPage(${number})">${number}</button>
         `;
       })
-      .join("");
+      .join('');
   }
 
   static async render() {
-    let divPageSelector = document.querySelector(".page-selector");
+    let divPageSelector = document.querySelector('.page-selector');
     divPageSelector.innerHTML = await this.template();
   }
 }

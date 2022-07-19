@@ -16,6 +16,7 @@ class TaskComponent {
     let tasks;
 
     //valida si notifier debe usarse como un alldata o un search específico.
+
     if (!search) {
       tasks = await Notifier.list(initial, config.itemForPage);
     } else {

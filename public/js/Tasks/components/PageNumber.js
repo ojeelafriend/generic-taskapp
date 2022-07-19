@@ -19,7 +19,13 @@ class PageNumber {
     pageState.setPage(pages);
 
     console.log(pageState.pages.length);
-    if (pageState.pages == 1) return '';
+
+    //cuando detecte el this.component que solo existe la página uno
+    //hará render del taskcomponent para no perder los datos.
+    if (pageState.pages == 1) {
+      TaskComponent.render(1);
+      return '';
+    }
 
     return pageState.pages
       .map((number) => {

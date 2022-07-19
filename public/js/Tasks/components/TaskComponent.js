@@ -23,7 +23,7 @@ class TaskComponent {
       tasks = await Notifier.search(search);
     }
 
-    console.log('Tasks' + tasks);
+    //valida si existen tareas.
     if (CurrentPage.getPage() == 1 && !tasks)
       return '<h3>There are no tasks yet</h3>';
 

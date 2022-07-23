@@ -5,4 +5,5 @@ interface IUserRepository
 {
     function save(\User $user);
     function compare(string $email);
+    function updateProfile(int $id, string $description);
 }

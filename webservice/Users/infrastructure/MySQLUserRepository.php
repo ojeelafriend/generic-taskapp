@@ -34,8 +34,9 @@ class MySQLUserRepository implements IUserRepository
         $email = $wrapper['email'];
         $username = $wrapper['username'];
         $password = $wrapper['password'];
+        $description = $wrapper['description'];
 
-        $sql = "INSERT INTO user (email, username, password) VALUES ('$email', '$username', '$password')";
+        $sql = "INSERT INTO user (email, username, password, description) VALUES ('$email', '$username', '$password', '$description')";
 
         $query = $this->client->prepare($sql);
         $query->execute();
@@ -49,5 +50,13 @@ class MySQLUserRepository implements IUserRepository
         $query->execute();
 
         return $query->fetchAll();
+    }
+
+    public function updateProfile($id, $description)
+    {
+        $sql = "UPDATE user SET description='$description' WHERE id_user='$id'";
+
+        $query = $this->client->prepare($sql);
+        $query->execute();
     }
 }
